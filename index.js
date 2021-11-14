@@ -14,9 +14,6 @@ const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
 });
-// // const serviceAccount = require('./books-outlet-firebase-adminsdk.json')
-
-
 
 // middleware
 app.use(cors());
@@ -40,7 +37,7 @@ async function verifyToken (req, res, next) {
 async function run () {
     try {
         await client.connect();
-        const database = client.db('onlineBookSellingSystem');
+        const database = client.db('books_outlet');
         const usersCollection = database.collection('users');
         const reviewCollection = database.collection('review');
         const booksCollection = database.collection('books');
